@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@drawable/bitcoin_b"
+        android:title="Markets" />
+
+
+    <item
+        android:id="@+id/portfolioFragment"
+        android:icon="@drawable/harmoneylogocut"
+        android:title="Portfolio" />
+
+    <item
+        android:id="@+id/textinput_placeholder"
+        android:title="" />
+
+
+    <item
+        android:id="@+id/newsFragment"
+        android:icon="@drawable/news"
+        android:title="News" />
+
+    <item
+        android:id="@+id/settingsFragmnet"
+        android:icon="@drawable/acc_settings"
+        android:title="Settings" />
+
+
+
+</menu>

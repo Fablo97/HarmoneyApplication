@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E4E4E2"
+    tools:context=".RegisterActivity"
+    tools:layout_editor_absoluteX="-6dp"
+    tools:layout_editor_absoluteY="0dp">
+
+
+    <ImageView
+        android:id="@+id/logoHarmoney"
+        android:layout_width="310dp"
+        android:layout_height="155dp"
+        android:layout_marginTop="144dp"
+        android:contentDescription="@string/app_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/harmoneylogo" />
+
+    <Button
+        android:id="@+id/button_back"
+        android:layout_width="106dp"
+        android:layout_height="51dp"
+        android:layout_marginEnd="4dp"
+        android:autoLink="phone"
+
+        android:backgroundTint="#E7E5DF"
+        android:text="Back"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/password_valid"
+        android:layout_width="323dp"
+        android:layout_height="53dp"
+        android:layout_marginBottom="8dp"
+        android:ems="10"
+        android:hint="Passwort wiederholen"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@+id/button_newuser"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/password_register"
+        android:layout_width="323dp"
+        android:layout_height="53dp"
+        android:ems="10"
+        android:hint="Passwort"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@+id/password_valid"
+        app:layout_constraintEnd_toEndOf="@+id/password_valid"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/password_valid"
+        app:layout_constraintTop_toBottomOf="@+id/logoHarmoney"
+        app:layout_constraintVertical_bias="0.951" />
+
+    <EditText
+        android:id="@+id/mail"
+        android:layout_width="323dp"
+        android:layout_height="53dp"
+        android:ems="10"
+        android:hint="E-Mail"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toTopOf="@+id/password_register"
+        app:layout_constraintEnd_toEndOf="@+id/password_register"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/password_register"
+        app:layout_constraintTop_toBottomOf="@+id/logoHarmoney"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/button_newuser"
+        android:layout_width="310dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="180dp"
+        android:hint="Registrieren"
+        android:text="Registrieren"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logoHarmoney" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

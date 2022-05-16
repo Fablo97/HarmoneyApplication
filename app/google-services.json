@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "499696505505",
+    "project_id": "harmoney-562b9",
+    "storage_bucket": "harmoney-562b9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:499696505505:android:d9d35a2bfdd9a4d16ed6e0",
+        "android_client_info": {
+          "package_name": "com.example.harmoneyapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "499696505505-8e7nr6admih21enfe7sk3f4364c56ae7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.harmoneyapp",
+            "certificate_hash": "6f7b2234c53d07b24bee7383d7476d560537e14d"
+          }
+        },
+        {
+          "client_id": "499696505505-jkojp95nsor8sc1o0o1fsr637vnj0lm5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOF1OtJpxhEDyHkUTwdsgTndJ26IHovxM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "499696505505-jkojp95nsor8sc1o0o1fsr637vnj0lm5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
