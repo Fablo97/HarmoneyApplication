@@ -3,15 +3,21 @@ package com.example.harmoneyapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.BoringLayout;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.bottomappbar.BottomAppBar;
+import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarItemView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -37,14 +43,47 @@ public class MainActivity extends AppCompatActivity {
         logoutbtn.setOnClickListener(view -> {
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
         });
+
+        BottomNavigationView bottomNav = findViewById(R.id.bottomNavigationBar);
+
+
+        bottomNav.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.marketFragment:
+                        FragmentTransaction homeAction = getSupportFragmentManager().beginTransaction();
+                        homeAction.replace(R.id.keyFragment, new MarketsFragment());
+                        homeAction.commit();
+                        Toast.makeText(MainActivity.this, "Home", Toast.LENGTH_SHORT).show();
+                            break;
+                    case R.id.portfolioFragment:
+                        FragmentTransaction portfolioAction = getSupportFragmentManager().beginTransaction();
+                        portfolioAction.replace(R.id.keyFragment, new PortfolioFragment());
+                        portfolioAction.commit();
+                        Toast.makeText(MainActivity.this, "Portfolio", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.newsFragment:
+                        FragmentTransaction newsAction = getSupportFragmentManager().beginTransaction();
+                        newsAction.replace(R.id.keyFragment, new NewsFragment());
+                        newsAction.commit();
+                        Toast.makeText(MainActivity.this, "News", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.settingsFragmnet:
+                        FragmentTransaction settingsAction = getSupportFragmentManager().beginTransaction();
+                        settingsAction.replace(R.id.keyFragment, new SettingsFragment());
+                        settingsAction.commit();
+                        Toast.makeText(MainActivity.this, "Settings", Toast.LENGTH_SHORT).show();
+                        break;
+                }
+                return false;
+            }
+        });
+        {
+
+        }
+
     }
-
-
-
-// Test Kommentar
-
-
-
 
 
     @Override
@@ -55,6 +94,4 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
         }
     }
-
-
 }
