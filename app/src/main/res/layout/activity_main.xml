@@ -8,29 +8,6 @@
     tools:context=".MainActivity">
 
 
-   <Button
-        android:id="@+id/logoutbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Abmelden"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
-
-
-    <FrameLayout
-        android:id="@+id/fragment_container"
-        android:layout_width="match_parent"
-        android:layout_height="676dp" >
-
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/keyFragment"
-            android:name="com.example.harmoneyapp.MarketsFragment"
-            android:layout_width="match_parent"
-            android:layout_height="731dp" />
-
-    </FrameLayout>
-
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomAppBar"
         android:layout_width="match_parent"
@@ -56,6 +33,46 @@
         android:width="50dp"
         android:height="30dp"
         android:src="@drawable/ic_baseline_add_24"
-        app:layout_anchor="@+id/bottomAppBar" />
+        app:layout_anchor="@id/bottomAppBar" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="201dp"
+            android:layout_height="133dp"
+            android:layout_marginStart="28dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/harmoneylogo" />
+
+        <Button
+            android:id="@+id/logoutbtn"
+            android:layout_width="120dp"
+            android:layout_height="39dp"
+
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="56dp"
+            android:text="Abmelden"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.289"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/keyFragment"
+            android:name="com.example.harmoneyapp.MarketsFragment"
+            android:layout_width="415dp"
+            android:layout_height="569dp"
+            android:layout_marginTop="132dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.304"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

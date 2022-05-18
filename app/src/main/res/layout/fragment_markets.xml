@@ -1,17 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/marketFragment"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/holo_blue_bright">
+    android:layout_height="wrap_content">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Fragment MARKETS"
-        android:textSize="30dp"
-        android:layout_centerInParent="true"
-    />
-    
+        android:background="#ffffff">
 
+        <androidx.cardview.widget.CardView
+            android:id="@+id/imageView"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:cardCornerRadius="60dp">
+
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/btc_logo"></ImageView>
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="120dp"
+            android:layout_height="30dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="4dp"
+            android:layout_toRightOf="@+id/imageView"
+            android:text="Bitcoin"
+            android:textColor="#000000"
+            android:textSize="20dp"></TextView>
+
+        <TextView
+            android:layout_width="96dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="101dp"
+            android:layout_marginTop="19dp"
+            android:layout_toRightOf="@+id/textView"
+            android:text="29.000,00 $"
+            android:textColor="#4CAF50"
+            android:textSize="16dp"></TextView>
+
+        <TextView
+            android:layout_width="122dp"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/textView"
+            android:layout_alignEnd="@+id/textView"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="2dp"
+            android:layout_marginLeft="-118dp"
+            android:layout_marginTop="31dp"
+            android:layout_marginEnd="-4dp"
+            android:layout_toRightOf="@+id/textView"
+            android:text="BTC"
+            android:textColor="#8D958D"
+            android:textSize="15sp"></TextView>
+
+
+    </RelativeLayout>
 </RelativeLayout>
+
+

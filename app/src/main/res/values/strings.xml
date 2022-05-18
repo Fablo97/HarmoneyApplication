@@ -2,4 +2,27 @@
     <string name="app_name">HarmoneyApp</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="Assets">
+        <item>Bitcoin</item>
+        <item>Ethereum</item>
+        <item>BNB</item>
+        <item>XRP</item>
+        <item>Cardano</item>
+        <item>Solana</item>
+        <item>Dogecoin</item>
+        <item>Polkadot</item>
+        <item>Avalanche</item>
+    </string-array>
+
+    <string-array name="description">
+        <item>Bitcoin</item>
+        <item>Ethereum</item>
+        <item>BNB</item>
+        <item>XRP</item>
+        <item>Cardano</item>
+        <item>Solana</item>
+        <item>Dogecoin</item>
+        <item>Polkadot</item>
+        <item>Avalanche</item>
+    </string-array>
 </resources>

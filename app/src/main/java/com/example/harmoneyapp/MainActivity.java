@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
     Button logoutbtn;
     FirebaseAuth mAuth;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNav = findViewById(R.id.bottomNavigationBar);
 
-
         bottomNav.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -55,34 +53,26 @@ public class MainActivity extends AppCompatActivity {
                         FragmentTransaction homeAction = getSupportFragmentManager().beginTransaction();
                         homeAction.replace(R.id.keyFragment, new MarketsFragment());
                         homeAction.commit();
-                        Toast.makeText(MainActivity.this, "Home", Toast.LENGTH_SHORT).show();
-                            break;
+                        return true;
                     case R.id.portfolioFragment:
                         FragmentTransaction portfolioAction = getSupportFragmentManager().beginTransaction();
                         portfolioAction.replace(R.id.keyFragment, new PortfolioFragment());
                         portfolioAction.commit();
-                        Toast.makeText(MainActivity.this, "Portfolio", Toast.LENGTH_SHORT).show();
-                        break;
+                        return true;
                     case R.id.newsFragment:
                         FragmentTransaction newsAction = getSupportFragmentManager().beginTransaction();
                         newsAction.replace(R.id.keyFragment, new NewsFragment());
                         newsAction.commit();
-                        Toast.makeText(MainActivity.this, "News", Toast.LENGTH_SHORT).show();
-                        break;
+                        return true;
                     case R.id.settingsFragmnet:
                         FragmentTransaction settingsAction = getSupportFragmentManager().beginTransaction();
                         settingsAction.replace(R.id.keyFragment, new SettingsFragment());
                         settingsAction.commit();
-                        Toast.makeText(MainActivity.this, "Settings", Toast.LENGTH_SHORT).show();
-                        break;
+                        return  true;
                 }
-                return false;
+                return true;
             }
         });
-        {
-
-        }
-
     }
 
 
