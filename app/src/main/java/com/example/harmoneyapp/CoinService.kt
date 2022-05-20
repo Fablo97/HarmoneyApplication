@@ -1,14 +1,33 @@
 package com.example.harmoneyapp
 
-import drewcarlson.coingecko.CoinGeckoClient
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 
-class CoinService {
+class CoinService(
+    private val firebaseAuth: FirebaseAuth,
+    private val database: FirebaseDatabase
+) {
 
-    private val coinGecko = CoinGeckoClient.create()
+    fun addAssetToPortfolio(amount: Number) {
+        val ref = database.getReference(currentUser()!!).child("portfolio")
+        ref.setValue(amount)
+    }
 
+    fun updateAssetFromPortfolio(assetId: String) {
+        val ref = database.getReference(currentUser()!!).child("portfolio").child(assetId).setValue("{complete object}")
+    }
 
-   // fun getTokenPrices() {
-     //   coinGecko.getPrice("ethereum,bitcoin", "eur,usd)
-   //}
+    fun deleteAssetFromPortfolio() {
+        val ref = database.getReference(currentUser()!!).child("portfolio")
+    }
+
+    fun getPortfolioAssets() {
+        val ref = database.getReference(currentUser()!!).child("portfolio")
+        ref.get()
+    }
+
+    private fun currentUser(): String? {
+        return firebaseAuth.currentUser?.uid
+    }
 
 }

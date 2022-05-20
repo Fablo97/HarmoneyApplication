@@ -1,31 +1,31 @@
 package com.example.harmoneyapp;
 
 public class ModelClass {
-    private int imageview1;
-    private String textview;
-    private String textview2;
-    private String textview3;
+    private String imageUrl;
+    private String name;
+    private String assetPrice;
+    private String assetSymbol;
 
-    ModelClass(int imageview1, String textview, String textview2, String textview3) {
-    this.imageview1=imageview1;
-    this.textview=textview;
-    this.textview2=textview2;
-    this.textview3=textview3;
+    ModelClass(String imageUrl, String name, String assetPrice, String assetSymbol) {
+        this.imageUrl = imageUrl;
+        this.name = name;
+        this.assetPrice = assetPrice;
+        this.assetSymbol = assetSymbol;
     }
 
-    public int getImageview1() {
-        return imageview1;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public String getTextview() {
-        return textview;
+    public String getName() {
+        return name;
     }
 
-    public String getTextview2() {
-        return textview2;
+    public String getAssetPrice() {
+        return assetPrice;
     }
 
-    public String getTextview3() {
-        return textview3;
+    public String getAssetSymbol() {
+        return assetSymbol;
     }
 }

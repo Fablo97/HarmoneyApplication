@@ -9,6 +9,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         android:background="#ffffff">
 
         <androidx.cardview.widget.CardView
@@ -20,8 +21,8 @@
 
             <ImageView
                 android:id="@+id/imageView1"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:scaleType="centerCrop"
                 android:src="@drawable/btc_logo"></ImageView>
         </androidx.cardview.widget.CardView>
@@ -47,6 +48,7 @@
             android:layout_marginTop="19dp"
             android:layout_toRightOf="@+id/textView"
             android:text="29.000,00 $"
+            android:textAlignment="textEnd"
             android:textColor="#4CAF50"
             android:textSize="16dp"></TextView>
 
