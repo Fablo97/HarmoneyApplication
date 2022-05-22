@@ -1,23 +1,36 @@
 package com.example.harmoneyapp;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     Button logoutbtn;
     FirebaseAuth mAuth;
+    FloatingActionButton add_button;
+    TextView spinnerserchasset;
+    ArrayList<String> asset_spinner_list;
+    Dialog dialog;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +39,16 @@ public class MainActivity extends AppCompatActivity {
 
         logoutbtn = findViewById(R.id.logoutbtn);
         mAuth = FirebaseAuth.getInstance();
+
+        add_button = findViewById(R.id.addButton);
+
+
+
+
+
+        add_button.setOnClickListener(view -> {
+            startActivity(new Intent(MainActivity.this, AddAssetActivity.class));
+        });
 
         logoutbtn.setOnClickListener(view -> {
             startActivity(new Intent(MainActivity.this, LoginActivity.class));

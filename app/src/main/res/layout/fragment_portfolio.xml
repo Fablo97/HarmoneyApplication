@@ -1,16 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/portfolioFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_blue_bright">
+    android:background="#E4E4E2">
+
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/my_portfolio_price"
+        android:layout_width="128dp"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Fragment PORTFOLIO"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="34dp"
+        android:layout_marginBottom="531dp"
+        android:text="55 444 €"
+        android:textColor="#000000"
         android:textSize="30dp" />
 
+    <TextView
+        android:id="@+id/my_portfolio_text"
+        android:layout_width="259dp"
+        android:layout_height="42dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="118dp"
+        android:layout_marginBottom="524dp"
+        android:text="My Portfolio:"
+        android:textSize="24sp" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView2"
+        android:layout_width="match_parent"
+        android:layout_height="502dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp" />
 </RelativeLayout>

@@ -85,10 +85,10 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            imageView1 = itemView.findViewById(R.id.imageView1);
-            textView = itemView.findViewById(R.id.textView);
-            textView2 = itemView.findViewById(R.id.textView2);
-            textView3 = itemView.findViewById(R.id.textView3);
+            imageView1 = itemView.findViewById(R.id.item_portfolio_logo);
+            textView = itemView.findViewById(R.id.name_portfolio);
+            textView2 = itemView.findViewById(R.id.item_portfolio_price);
+            textView3 = itemView.findViewById(R.id.item_portfolio_symbol);
 
         }
 

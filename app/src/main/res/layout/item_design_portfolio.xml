@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/marketFragment"
+    android:id="@+id/portfolioFragment"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -61,12 +61,38 @@
             android:layout_width="wrap_content"
             android:layout_height="52dp"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="91dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginLeft="-25dp"
+            android:layout_marginTop="22dp"
             android:layout_toRightOf="@+id/name_portfolio"
             android:text="29.000,00 $"
             android:textAlignment="textEnd"
             android:textColor="#13B519"
+            android:textSize="20sp"></TextView>
+
+        <TextView
+            android:id="@+id/item_mymoney"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="107dp"
+            android:layout_marginTop="9dp"
+            android:layout_toRightOf="@+id/name_portfolio"
+            android:text="60 000,00 €"
+            android:textAlignment="textEnd"
+            android:textColor="@color/black"
+            android:textSize="20sp"></TextView>
+
+        <TextView
+            android:id="@+id/item_mymoneyincrypto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="107dp"
+            android:layout_marginTop="41dp"
+            android:layout_toRightOf="@+id/name_portfolio"
+            android:text="2 BTC"
+            android:textAlignment="textEnd"
+            android:textColor="@color/black"
             android:textSize="20sp"></TextView>
 
         <View
