@@ -48,8 +48,8 @@
         android:textAlignment="center"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/text_add_asset_number"
-        app:layout_constraintStart_toStartOf="@+id/text_add_asset_number" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/text_add_asset_number"

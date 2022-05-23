@@ -64,7 +64,7 @@
             android:layout_marginLeft="91dp"
             android:layout_marginTop="25dp"
             android:layout_toRightOf="@+id/name_portfolio"
-            android:text="29.000,00 $"
+            android:text="25.000,00 $"
             android:textAlignment="textEnd"
             android:textColor="#13B519"
             android:textSize="20sp"></TextView>

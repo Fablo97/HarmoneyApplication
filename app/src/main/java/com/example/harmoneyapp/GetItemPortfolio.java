@@ -4,13 +4,13 @@ public class GetItemPortfolio {
     private String item_portfolio_logo;
     private String name_portfolio;
     private String item_portfolio_symbol;
-    private String item_portfolio_price;
+    private Double item_portfolio_price;
   /*
     private String item_mymoney;
     private String item_mymoneyincrypto;
    */
 
-    GetItemPortfolio(String item_portfolio_logo, String name_portfolio, String item_portfolio_symbol, String item_portfolio_price, String item_mymoney, String item_mymoneyincrypto) {
+    GetItemPortfolio(String item_portfolio_logo, String name_portfolio, String item_portfolio_symbol, Double item_portfolio_price, String item_mymoney, String item_mymoneyincrypto) {
         this.item_portfolio_logo = item_portfolio_logo;
         this.name_portfolio = name_portfolio;
         this.item_portfolio_symbol = item_portfolio_symbol;
@@ -35,7 +35,7 @@ public class GetItemPortfolio {
         return item_portfolio_symbol;
     }
 
-    public String getAssetSymbol() {
+    public Double getAssetSymbol() {
         return item_portfolio_price;
     }
 

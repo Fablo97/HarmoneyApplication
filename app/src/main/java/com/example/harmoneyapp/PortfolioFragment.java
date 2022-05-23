@@ -22,9 +22,7 @@ import drewcarlson.coingecko.models.coins.CoinMarkets;
 public class PortfolioFragment extends Fragment {
 
     RecyclerView recyclerView;
-    LinearLayoutManager layoutManager;
     List<GetItemPortfolio> assetList2;
-    Adapter adapter;
 
     @Nullable
     @Override
@@ -42,7 +40,6 @@ public class PortfolioFragment extends Fragment {
     }
 
     private void initData() {
-
         PriceViewModel viewModel = new ViewModelProvider(this).get(PriceViewModel.class);
 
         assetList2 = new ArrayList<>();
@@ -54,21 +51,18 @@ public class PortfolioFragment extends Fragment {
             int marketsSize = markets.getMarkets().size();
             List<CoinMarkets> m = markets.getMarkets();
 
-            for (int i = 0; i < 1; i++) {
-
+            for (int i = 0; i < 3; i++) {
                 CoinMarkets market = m.get(i);
                 String name = market.getName();
                 double price = market.getCurrentPrice();
                 String symbol = market.getSymbol();
 
-                assetList2.add(new GetItemPortfolio("",name,"","", "", ""));
+                assetList2.add(new GetItemPortfolio("name",name,symbol,price, "", ""));
                 // assetList.add(new ModelClass(R.drawable.btc_logo, name, price + "€", symbol));
             }
 
             recyclerView.setAdapter(new AdapterPortfolio(assetList2));
         });
-
-
     }
 
 }

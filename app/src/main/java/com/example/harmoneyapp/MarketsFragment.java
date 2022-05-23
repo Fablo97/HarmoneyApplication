@@ -77,13 +77,11 @@ public class MarketsFragment extends Fragment {
 
                 assetList.add(new ModelClass(market.getImage(), name, price + "€", symbol));
                 // assetList.add(new ModelClass(R.drawable.btc_logo, name, price + "€", symbol));
+
             }
 
             recyclerView.setAdapter(new Adapter(assetList));
         });
-
-
-
 
         // List<String> tokenIds = Arrays.asList("ethereum", "bitcoin", "dogecoin");
         /*

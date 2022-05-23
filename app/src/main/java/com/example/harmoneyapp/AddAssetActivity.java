@@ -92,4 +92,7 @@ public class AddAssetActivity extends AppCompatActivity {
             }
         });
     }
+
+
+
 }

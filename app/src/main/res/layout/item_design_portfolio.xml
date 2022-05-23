@@ -9,7 +9,6 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="80dp"
-
         android:background="#FFFFFF">
 
         <androidx.cardview.widget.CardView
@@ -19,13 +18,13 @@
             android:layout_marginTop="7.5dp"
             app:cardCornerRadius="60dp">
 
-
             <ImageView
                 android:id="@+id/item_portfolio_logo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:scaleType="centerCrop"
-                android:src="@drawable/btc_logo"></ImageView>
+                android:src="@drawable/btc_logo">
+            </ImageView>
         </androidx.cardview.widget.CardView>
 
         <TextView
@@ -93,7 +92,8 @@
             android:text="2 BTC"
             android:textAlignment="textEnd"
             android:textColor="@color/black"
-            android:textSize="20sp"></TextView>
+            android:textSize="20sp">
+        </TextView>
 
         <View
             android:id="@+id/divider"
@@ -101,8 +101,8 @@
             android:layout_height="1dp"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="2dp"
-            android:background="?android:attr/listDivider" />
-
+            android:background="?android:attr/listDivider"
+            />
 
     </RelativeLayout>
 </RelativeLayout>
