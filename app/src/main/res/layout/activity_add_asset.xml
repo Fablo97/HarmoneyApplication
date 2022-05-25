@@ -6,22 +6,20 @@
     android:layout_height="match_parent"
     android:background="#E4E4E2"
     tools:context=".AddAssetActivity"
-    tools:layout_editor_absoluteX="-1dp"
-    tools:layout_editor_absoluteY="95dp">
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="52dp">
 
 
     <TextView
         android:id="@+id/spinnersearch"
         android:layout_width="298dp"
         android:layout_height="46dp"
-        android:layout_marginTop="17dp"
-        android:layout_marginBottom="424dp"
+        android:layout_marginTop="44dp"
         android:background="@android:drawable/editbox_background"
         android:drawableEnd="@drawable/select_down"
         android:gravity="center_vertical"
         android:hint="Asset auswählen"
         android:padding="12dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/textView4"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="@+id/textView4"
@@ -31,7 +29,7 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="244dp"
+        android:layout_marginTop="272dp"
         android:text="Asset hinzufügen"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,15 +38,17 @@
 
     <EditText
         android:id="@+id/add_asset_number"
-        android:layout_width="82dp"
-        android:layout_height="56dp"
-        android:layout_marginBottom="316dp"
+        android:layout_width="103dp"
+        android:layout_height="57dp"
+        android:layout_marginBottom="284dp"
         android:ems="10"
+        android:hint="0"
         android:inputType="textPersonName"
         android:textAlignment="center"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -60,9 +60,22 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/add_asset_number"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/add_portfolio_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hinzufügen"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add_asset_number"
+        app:layout_constraintVertical_bias="0.131" />
 
     <Button
         android:id="@+id/button_back_add"
@@ -77,25 +90,12 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <Button
-        android:id="@+id/add_portfolio_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hinzufügen"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/add_asset_number"
-        app:layout_constraintVertical_bias="0.115" />
-
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="160dp"
-        android:layout_height="125dp"
-        android:layout_marginTop="84dp"
+        android:layout_width="173dp"
+        android:layout_height="139dp"
+        android:layout_marginTop="120dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/harmoneylogocut" />

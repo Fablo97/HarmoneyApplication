@@ -2,6 +2,7 @@ package com.example.harmoneyapp;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.StrictMode;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 import java.util.Locale;
@@ -21,8 +23,8 @@ public class AdapterPortfolio extends RecyclerView.Adapter<AdapterPortfolio.View
 
     List<GetItemPortfolio> portfolioList;
 
-    public AdapterPortfolio(List<GetItemPortfolio> assetList) {
-        this.portfolioList = assetList;
+    public AdapterPortfolio(List<GetItemPortfolio> portfolioList) {
+        this.portfolioList = portfolioList;
     }
 
     @NonNull
@@ -35,7 +37,40 @@ public class AdapterPortfolio extends RecyclerView.Adapter<AdapterPortfolio.View
     @Override
     public void onBindViewHolder(@NonNull AdapterPortfolio.ViewHolder holder, int position) {
 
+        StrictMode.ThreadPolicy gfgPolicy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(gfgPolicy);
+
+        String logo = portfolioList.get(position).getImageUrlPortfolio();
+        String name = portfolioList.get(position).getNamePortfolio();
+        String price = portfolioList.get(position).getAssetPricePortfolio();
+        String symbol = portfolioList.get(position).getAssetSymbolPortfolio();
+
+
+/*
+        URL imageUrl = null;
+        try {
+            imageUrl = new URL(logo);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        Bitmap bmp = null;
+        try {
+            assert imageUrl != null;
+            bmp = BitmapFactory.decodeStream(imageUrl.openConnection().getInputStream());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+       holder.test.setImageBitmap(bmp);
+        try {
+            holder.setData(logo, name, price, symbol);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+*/
+
+
     }
+
 
     @Override
     public int getItemCount() {
@@ -44,25 +79,32 @@ public class AdapterPortfolio extends RecyclerView.Adapter<AdapterPortfolio.View
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView name_portfolio;
-        TextView item_portfolio_price;
-        TextView item_portfolio_symbol;
+        ImageView test;
+        TextView asset_name;
+        TextView asset_price;
+        TextView asset_symbol;
+    //    TextView item_mymoney;
+      //  TextView item_mymoneyincrypto;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            name_portfolio = itemView.findViewById(R.id.name_portfolio);
-            item_portfolio_price = itemView.findViewById(R.id.item_portfolio_price);
-            item_portfolio_symbol = itemView.findViewById(R.id.item_portfolio_symbol);
+            test = itemView.findViewById(R.id.new_portfolio_logo);
+            asset_name = itemView.findViewById(R.id.new_name_portfolio);
+            asset_price = itemView.findViewById(R.id.new_portfolio_price);
+            asset_symbol = itemView.findViewById(R.id.new_portfolio_symbol);
 
         }
 
-        public void setData(String name, String price, String badges) throws IOException {
+        public void setData(String logo, String name, String price, String symbol) throws IOException {
 
+            URL imageUrl = new URL(logo);
+            Bitmap bmp = BitmapFactory.decodeStream(imageUrl.openConnection().getInputStream());
+            test.setImageBitmap(bmp);
 
-            name_portfolio.setText(name);
-            item_portfolio_price.setText(price);
-            item_portfolio_symbol.setText(badges.toUpperCase(Locale.ROOT));
+            asset_name.setText(name);
+            asset_price.setText(price);
+            asset_symbol.setText(symbol.toUpperCase(Locale.ROOT));
         }
     }
 }

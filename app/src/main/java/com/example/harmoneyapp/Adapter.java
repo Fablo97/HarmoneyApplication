@@ -36,7 +36,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull Adapter.ViewHolder holder, int position) {
 
-
         StrictMode.ThreadPolicy gfgPolicy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(gfgPolicy);
 
@@ -58,9 +57,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        holder.imageView1.setImageBitmap(bmp);
+       holder.imageView1.setImageBitmap(bmp);
 
-        // holder.imageView1.setImageResource();
+     //   holder.imageView1.setImageResource(bmp);
         try {
             holder.setData(assetLogo, name, price, badges);
         } catch (IOException e) {
@@ -85,10 +84,10 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            imageView1 = itemView.findViewById(R.id.item_portfolio_logo);
-            textView = itemView.findViewById(R.id.name_portfolio);
-            textView2 = itemView.findViewById(R.id.item_portfolio_price);
-            textView3 = itemView.findViewById(R.id.item_portfolio_symbol);
+            imageView1 = itemView.findViewById(R.id.new_portfolio_logo);
+            textView = itemView.findViewById(R.id.new_name_portfolio);
+            textView2 = itemView.findViewById(R.id.new_portfolio_price);
+            textView3 = itemView.findViewById(R.id.new_portfolio_symbol);
 
         }
 

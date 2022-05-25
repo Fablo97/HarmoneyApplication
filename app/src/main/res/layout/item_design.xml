@@ -21,7 +21,7 @@
 
 
             <ImageView
-                android:id="@+id/item_portfolio_logo"
+                android:id="@+id/new_portfolio_logo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:scaleType="centerCrop"
@@ -29,7 +29,7 @@
         </androidx.cardview.widget.CardView>
 
         <TextView
-            android:id="@+id/name_portfolio"
+            android:id="@+id/new_name_portfolio"
             android:layout_width="120dp"
             android:layout_height="30dp"
             android:layout_alignParentTop="true"
@@ -41,29 +41,29 @@
             android:textSize="20dp"></TextView>
 
         <TextView
-            android:id="@+id/item_portfolio_symbol"
+            android:id="@+id/new_portfolio_symbol"
             android:layout_width="122dp"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/name_portfolio"
-            android:layout_alignEnd="@+id/name_portfolio"
+            android:layout_alignStart="@+id/new_name_portfolio"
+            android:layout_alignEnd="@+id/new_name_portfolio"
             android:layout_alignParentTop="true"
             android:layout_marginStart="2dp"
             android:layout_marginLeft="-118dp"
             android:layout_marginTop="40dp"
             android:layout_marginEnd="-4dp"
-            android:layout_toRightOf="@+id/name_portfolio"
+            android:layout_toRightOf="@+id/new_name_portfolio"
             android:text="BTC"
             android:textColor="#8D958D"
             android:textSize="15sp"></TextView>
 
         <TextView
-            android:id="@+id/item_portfolio_price"
+            android:id="@+id/new_portfolio_price"
             android:layout_width="wrap_content"
             android:layout_height="52dp"
             android:layout_alignParentTop="true"
             android:layout_marginLeft="91dp"
             android:layout_marginTop="25dp"
-            android:layout_toRightOf="@+id/name_portfolio"
+            android:layout_toRightOf="@+id/new_name_portfolio"
             android:text="25.000,00 $"
             android:textAlignment="textEnd"
             android:textColor="#13B519"

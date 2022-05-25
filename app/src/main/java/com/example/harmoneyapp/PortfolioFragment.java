@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -21,8 +22,12 @@ import drewcarlson.coingecko.models.coins.CoinMarkets;
 
 public class PortfolioFragment extends Fragment {
 
-    RecyclerView recyclerView;
-    List<GetItemPortfolio> assetList2;
+    public PortfolioFragment() {
+
+    }
+
+    RecyclerView recyclerView2;
+    List<GetItemPortfolio> portfolioList;
 
     @Nullable
     @Override
@@ -30,9 +35,9 @@ public class PortfolioFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_portfolio, container, false);
 
-        recyclerView = view.findViewById(R.id.recyclerView2);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView2 = view.findViewById(R.id.recyclerView2);
+        recyclerView2.setHasFixedSize(true);
+        recyclerView2.setLayoutManager(new LinearLayoutManager(getContext()));
 
         this.initData();
 
@@ -42,8 +47,9 @@ public class PortfolioFragment extends Fragment {
     private void initData() {
         PriceViewModel viewModel = new ViewModelProvider(this).get(PriceViewModel.class);
 
-        assetList2 = new ArrayList<>();
+        portfolioList = new ArrayList<>();
         viewModel.getCoinMarkets("eur");
+
 
         viewModel.getMarkets().observe(getViewLifecycleOwner(), markets -> {
             Log.d("", markets.toString());
@@ -51,17 +57,20 @@ public class PortfolioFragment extends Fragment {
             int marketsSize = markets.getMarkets().size();
             List<CoinMarkets> m = markets.getMarkets();
 
-            for (int i = 0; i < 3; i++) {
+            for (int i = 0; i < 5; i++) {
                 CoinMarkets market = m.get(i);
                 String name = market.getName();
                 double price = market.getCurrentPrice();
                 String symbol = market.getSymbol();
 
-                assetList2.add(new GetItemPortfolio("name",name,symbol,price, "", ""));
-                // assetList.add(new ModelClass(R.drawable.btc_logo, name, price + "€", symbol));
+                portfolioList.add(new GetItemPortfolio(name, symbol, "price",symbol));
+
+        //        portfolioList.add(new GetItemPortfolio("name",name,"",symbol));
+             //   portfolioList.add(new GetItemPortfolio(market.getImage(), name, price + "€", symbol));
+
             }
 
-            recyclerView.setAdapter(new AdapterPortfolio(assetList2));
+            recyclerView2.setAdapter(new AdapterPortfolio(portfolioList));
         });
     }
 
