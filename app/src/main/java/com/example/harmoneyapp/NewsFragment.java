@@ -21,7 +21,7 @@ public class NewsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_news, container, false);
         WebView myWebView = view.findViewById(R.id.newsWebView);
 
-        myWebView.loadUrl("https://news.google.com/search?q=Bitcoin&hl=de&gl");
+        myWebView.loadUrl("https://www.wiwo.de/themen/bitcoin");
         myWebView.setWebViewClient(new WebViewClient()
         {
             @Override
@@ -30,8 +30,10 @@ public class NewsFragment extends Fragment {
             }
         });
 
+
         WebSettings webSettings = myWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
+        myWebView.scrollBy(0, 3005);
 
         return view;
     }

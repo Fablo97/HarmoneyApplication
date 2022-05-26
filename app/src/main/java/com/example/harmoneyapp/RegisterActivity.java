@@ -92,17 +92,18 @@ public class RegisterActivity extends AppCompatActivity {
         public void onComplete(@NonNull Task<AuthResult> task) {
             if(task.isSuccessful()) {
                 Toast.makeText(RegisterActivity.this, "Registrierung erfolgreich", Toast.LENGTH_SHORT).show();
-                userID = mAuth.getCurrentUser().getUid();
-                DocumentReference documentReference = firestore.collection("users").document(userID);
-                Map<String,Object> user = new HashMap<>();
-                user.put("asset_add", spinnersearch);
-                user.put("anzahl", add_asset_number);
+
+               userID = mAuth.getCurrentUser().getUid();
+               DocumentReference documentReference = firestore.collection("users").document(userID).collection("portfolio").document("asset_list");
+               Map<String,Object> user = new HashMap<>();
                 documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
-                        Log.d("", "user is created for"+userID);
-                    }
-                });
+                         Log.d("", "user is created for"+userID);
+                 }
+               });
+
+
                 startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
             } else {
                 Toast.makeText(RegisterActivity.this, "Registrieren Fehlgeschlagen, Passwörter müssen authentisch sein" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();

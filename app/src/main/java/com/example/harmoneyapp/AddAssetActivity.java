@@ -72,18 +72,20 @@ public class AddAssetActivity extends AppCompatActivity {
         add_portfolio_button.setOnClickListener(v -> {
            String spinner_data = spinnerserchasset.getText().toString();
            String add_asset_number_data = add_asset_number.getText().toString();
-           userID = mAuth.getCurrentUser().getUid();
+            userID = mAuth.getCurrentUser().getUid();
+            DocumentReference documentReference = firestore.collection("users").document(userID).collection("portfolio").document("asset_list");
+            Map<String,Object> user = new HashMap<>();
+            user.put(spinner_data, add_asset_number_data);
 
-           DocumentReference documentReference = firestore.collection("users").document(userID);
-           Map<String,Object> user = new HashMap<>();
-           user.put("itcoin", spinnersearch);
-           user.put("add_asset_number_data", add_asset_number);
-           documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
-                @Override
+
+           documentReference.update(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+               @Override
                 public void onSuccess(Void unused) {
                     Log.d("", "user is created for"+userID);
+                    startActivity(new Intent(AddAssetActivity.this, MainActivity.class));
                 }
            });
+
 
            Toast.makeText(AddAssetActivity.this, spinner_data+add_asset_number_data, Toast.LENGTH_SHORT).show();
         });
@@ -113,9 +115,6 @@ public class AddAssetActivity extends AppCompatActivity {
 
                 asset_spinner_list.add(name);
                 // assetList.add(new ModelClass(R.drawable.btc_logo, name, price + "€", symbol));
-
-
-
             }
         });
 
