@@ -76,27 +76,11 @@ public class MarketsFragment extends Fragment {
                 String symbol = market.getSymbol();
 
                 assetList.add(new ModelClass(market.getImage(), name, price + "€", symbol));
-                // assetList.add(new ModelClass(R.drawable.btc_logo, name, price + "€", symbol));
-
             }
 
             recyclerView.setAdapter(new Adapter(assetList));
         });
 
-        // List<String> tokenIds = Arrays.asList("ethereum", "bitcoin", "dogecoin");
-        /*
-        viewModel.getTokenPrices("ethereum,bitcoin,dogecoin", "usd,eur");
-        viewModel.getCoinPrices().observe(this, prices -> {
-            Log.d("", prices.toString());
-
-            for (int i = 0; i < tokenIds.size(); i++) {
-                CoinPrice assetPrice = prices.get(tokenIds.get(i));
-                assert assetPrice != null;
-                Double price = assetPrice.getPrice("eur");
-                assetPrice.get24hrChange("eur");
-            }
-        });
-        */
 
 
     }

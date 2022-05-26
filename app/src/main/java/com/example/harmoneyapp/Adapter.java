@@ -59,7 +59,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         }
        holder.imageView1.setImageBitmap(bmp);
 
-     //   holder.imageView1.setImageResource(bmp);
         try {
             holder.setData(assetLogo, name, price, badges);
         } catch (IOException e) {

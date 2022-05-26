@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.io.IOException;
@@ -40,13 +41,21 @@ public class AdapterPortfolio extends RecyclerView.Adapter<AdapterPortfolio.View
         StrictMode.ThreadPolicy gfgPolicy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(gfgPolicy);
 
-        String logo = portfolioList.get(position).getImageUrlPortfolio();
+
+
+       // String logo = portfolioList.get(position).getImageUrlPortfolio() || "SOL";
+        // TODO: get image url from firestore
+        String logo = "https://assets.coingecko.com/coins/images/1/large/solana.png?1547033579";
+
+
+        String amount = portfolioList.get(position).getAmount();
         String name = portfolioList.get(position).getNamePortfolio();
         String price = portfolioList.get(position).getAssetPricePortfolio();
-        String symbol = portfolioList.get(position).getAssetSymbolPortfolio();
+
+        // TODO: get correct symbol
+        String symbol = "SOL"; // portfolioList.get(position).getAssetSymbolPortfolio();
 
 
-/*
         URL imageUrl = null;
         try {
             imageUrl = new URL(logo);
@@ -60,13 +69,12 @@ public class AdapterPortfolio extends RecyclerView.Adapter<AdapterPortfolio.View
         } catch (IOException e) {
             e.printStackTrace();
         }
-       holder.test.setImageBitmap(bmp);
+        holder.test.setImageBitmap(bmp);
         try {
-            holder.setData(logo, name, price, symbol);
+            holder.setData(logo, name, amount, price, symbol);
         } catch (IOException e) {
             e.printStackTrace();
         }
-*/
 
 
     }
@@ -83,8 +91,8 @@ public class AdapterPortfolio extends RecyclerView.Adapter<AdapterPortfolio.View
         TextView asset_name;
         TextView asset_price;
         TextView asset_symbol;
-    //    TextView item_mymoney;
-      //  TextView item_mymoneyincrypto;
+        TextView item_mymoney;
+        TextView item_mymoneyincrypto;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -94,9 +102,11 @@ public class AdapterPortfolio extends RecyclerView.Adapter<AdapterPortfolio.View
             asset_price = itemView.findViewById(R.id.new_portfolio_price);
             asset_symbol = itemView.findViewById(R.id.new_portfolio_symbol);
 
+            item_mymoneyincrypto = itemView.findViewById(R.id.new_item_mymoneyincrypto);
+
         }
 
-        public void setData(String logo, String name, String price, String symbol) throws IOException {
+        public void setData(String logo, String name, String amount, String price, String symbol) throws IOException {
 
             URL imageUrl = new URL(logo);
             Bitmap bmp = BitmapFactory.decodeStream(imageUrl.openConnection().getInputStream());
@@ -105,6 +115,8 @@ public class AdapterPortfolio extends RecyclerView.Adapter<AdapterPortfolio.View
             asset_name.setText(name);
             asset_price.setText(price);
             asset_symbol.setText(symbol.toUpperCase(Locale.ROOT));
+
+            item_mymoneyincrypto.setText(amount);
         }
     }
 }

@@ -70,28 +70,28 @@ public class AddAssetActivity extends AppCompatActivity {
         firestore = FirebaseFirestore.getInstance();
 
         add_portfolio_button.setOnClickListener(v -> {
-           String spinner_data = spinnerserchasset.getText().toString();
-           String add_asset_number_data = add_asset_number.getText().toString();
+            String spinner_data = spinnerserchasset.getText().toString();
+            String add_asset_number_data = add_asset_number.getText().toString();
             userID = mAuth.getCurrentUser().getUid();
             DocumentReference documentReference = firestore.collection("users").document(userID).collection("portfolio").document("asset_list");
-            Map<String,Object> user = new HashMap<>();
+            Map<String, Object> user = new HashMap<>();
             user.put(spinner_data, add_asset_number_data);
 
 
-           documentReference.update(user).addOnSuccessListener(new OnSuccessListener<Void>() {
-               @Override
+            documentReference.update(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
                 public void onSuccess(Void unused) {
-                    Log.d("", "user is created for"+userID);
+                    Log.d("", "user is created for" + userID);
                     startActivity(new Intent(AddAssetActivity.this, MainActivity.class));
                 }
-           });
+            });
 
 
-           Toast.makeText(AddAssetActivity.this, spinner_data+add_asset_number_data, Toast.LENGTH_SHORT).show();
+            Toast.makeText(AddAssetActivity.this, spinner_data + add_asset_number_data, Toast.LENGTH_SHORT).show();
         });
 
         button.setOnClickListener(v -> {
-           startActivity(new Intent(AddAssetActivity.this, MainActivity.class));
+            startActivity(new Intent(AddAssetActivity.this, MainActivity.class));
         });
 
         PriceViewModel viewModel = new ViewModelProvider(this).get(PriceViewModel.class);
@@ -119,7 +119,6 @@ public class AddAssetActivity extends AppCompatActivity {
         });
 
 
-
         spinnerserchasset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -137,7 +136,7 @@ public class AddAssetActivity extends AppCompatActivity {
                 ListView listView = dialog.findViewById(R.id.list_view);
 
                 ArrayAdapter<String> adapter = new ArrayAdapter<>(AddAssetActivity.this,
-                        android.R.layout.simple_list_item_1,asset_spinner_list);
+                        android.R.layout.simple_list_item_1, asset_spinner_list);
 
                 listView.setAdapter(adapter);
 

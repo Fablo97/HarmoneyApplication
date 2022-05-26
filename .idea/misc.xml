@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.24139492753623187" />
         <entry key="app/src/main/res/drawable/bitcoin_b.xml" value="0.2195" />
         <entry key="app/src/main/res/drawable/border.xml" value="0.2195" />
         <entry key="app/src/main/res/drawable/btc_logo.xml" value="0.1765" />

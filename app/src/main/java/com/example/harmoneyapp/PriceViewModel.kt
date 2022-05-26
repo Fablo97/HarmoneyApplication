@@ -3,11 +3,10 @@ package com.example.harmoneyapp
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import drewcarlson.coingecko.CoinGeckoClient
-import drewcarlson.coingecko.models.coins.CoinPrice
 import androidx.lifecycle.viewModelScope
-import drewcarlson.coingecko.models.coins.CoinMarkets
+import drewcarlson.coingecko.CoinGeckoClient
 import drewcarlson.coingecko.models.coins.CoinMarketsList
+import drewcarlson.coingecko.models.coins.CoinPrice
 import kotlinx.coroutines.launch
 
 
