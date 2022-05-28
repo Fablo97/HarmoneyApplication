@@ -59,7 +59,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         }
        holder.imageView1.setImageBitmap(bmp);
 
-     //   holder.imageView1.setImageResource(bmp);
         try {
             holder.setData(assetLogo, name, price, badges);
         } catch (IOException e) {
@@ -84,10 +83,10 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            imageView1 = itemView.findViewById(R.id.new_portfolio_logo);
-            textView = itemView.findViewById(R.id.new_name_portfolio);
-            textView2 = itemView.findViewById(R.id.new_portfolio_price);
-            textView3 = itemView.findViewById(R.id.new_portfolio_symbol);
+            imageView1 = itemView.findViewById(R.id.new_logo_markets);
+            textView = itemView.findViewById(R.id.new_name_markets);
+            textView2 = itemView.findViewById(R.id.new_price_markets);
+            textView3 = itemView.findViewById(R.id.new_symbol_markets);
 
         }
 

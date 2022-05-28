@@ -13,6 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HarmoneyApp">
         <activity
+            android:name=".ChangePassword"
+            android:exported="false" />
+        <activity
+            android:name=".Impressum"
+            android:exported="false" />
+        <activity
             android:name=".AddAssetActivity"
             android:exported="false" />
         <activity

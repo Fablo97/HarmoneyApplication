@@ -40,13 +40,13 @@ public class AdapterPortfolio extends RecyclerView.Adapter<AdapterPortfolio.View
         StrictMode.ThreadPolicy gfgPolicy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(gfgPolicy);
 
-        String logo = portfolioList.get(position).getImageUrlPortfolio();
+        String logo = "https://assets.coingecko.com/coins/images/1/large/solana.png?1547033579";
+        String amount = portfolioList.get(position).getAmount();
         String name = portfolioList.get(position).getNamePortfolio();
         String price = portfolioList.get(position).getAssetPricePortfolio();
-        String symbol = portfolioList.get(position).getAssetSymbolPortfolio();
+        String symbol = "SOL"; // portfolioList.get(position).getAssetSymbolPortfolio();
+        String cryptovalue = "SOL"; // portfolioList.get(position).getAssetSymbolPortfolio();
 
-
-/*
         URL imageUrl = null;
         try {
             imageUrl = new URL(logo);
@@ -60,15 +60,12 @@ public class AdapterPortfolio extends RecyclerView.Adapter<AdapterPortfolio.View
         } catch (IOException e) {
             e.printStackTrace();
         }
-       holder.test.setImageBitmap(bmp);
+        holder.porfolio_logo.setImageBitmap(bmp);
         try {
-            holder.setData(logo, name, price, symbol);
+            holder.setData(logo, name, amount, price, symbol, cryptovalue);
         } catch (IOException e) {
             e.printStackTrace();
         }
-*/
-
-
     }
 
 
@@ -79,32 +76,37 @@ public class AdapterPortfolio extends RecyclerView.Adapter<AdapterPortfolio.View
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        ImageView test;
-        TextView asset_name;
-        TextView asset_price;
-        TextView asset_symbol;
-    //    TextView item_mymoney;
-      //  TextView item_mymoneyincrypto;
+        ImageView porfolio_logo;
+        TextView porfolio_name;
+        TextView porfolio_price;
+        TextView porfolio_symbol;
+        TextView porfolio_value;
+        TextView porfolio_value_incrypto;
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            test = itemView.findViewById(R.id.new_portfolio_logo);
-            asset_name = itemView.findViewById(R.id.new_name_portfolio);
-            asset_price = itemView.findViewById(R.id.new_portfolio_price);
-            asset_symbol = itemView.findViewById(R.id.new_portfolio_symbol);
+            porfolio_logo = itemView.findViewById(R.id.new_logo_portfolio);
+            porfolio_name = itemView.findViewById(R.id.new_name_portfolio);
+            porfolio_price = itemView.findViewById(R.id.new_price_portfolio);
+            porfolio_symbol = itemView.findViewById(R.id.new_symbol_portfolio);
+            porfolio_value = itemView.findViewById(R.id.new_item_mymoney);
+            porfolio_value_incrypto = itemView.findViewById(R.id.new_item_mymoneyincrypto);
 
         }
 
-        public void setData(String logo, String name, String price, String symbol) throws IOException {
+        public void setData(String logo, String name, String amount, String price, String symbol, String cryptovalue) throws IOException {
 
             URL imageUrl = new URL(logo);
             Bitmap bmp = BitmapFactory.decodeStream(imageUrl.openConnection().getInputStream());
-            test.setImageBitmap(bmp);
+            porfolio_logo.setImageBitmap(bmp);
 
-            asset_name.setText(name);
-            asset_price.setText(price);
-            asset_symbol.setText(symbol.toUpperCase(Locale.ROOT));
+            porfolio_name.setText(name);
+            porfolio_price.setText(price);
+            porfolio_symbol.setText(symbol.toUpperCase(Locale.ROOT));
+            porfolio_value.setText(amount);
+            porfolio_value_incrypto.setText(cryptovalue);
         }
     }
 }

@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/change_password_button"
         android:layout_width="217dp"
         android:layout_height="62dp"
         android:layout_alignParentEnd="true"
@@ -17,7 +17,7 @@
         android:textAlignment="viewStart" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/kill_profile_button"
         android:layout_width="217dp"
         android:layout_height="62dp"
         android:layout_alignParentEnd="true"
@@ -28,7 +28,7 @@
         android:textAlignment="viewStart" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/impressum_button"
         android:layout_width="217dp"
         android:layout_height="62dp"
         android:layout_alignParentEnd="true"
@@ -39,7 +39,7 @@
         android:textAlignment="viewStart" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/setting_logout"
         android:layout_width="217dp"
         android:layout_height="62dp"
         android:layout_alignParentEnd="true"

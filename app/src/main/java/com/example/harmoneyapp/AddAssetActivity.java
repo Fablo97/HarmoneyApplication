@@ -70,23 +70,21 @@ public class AddAssetActivity extends AppCompatActivity {
         firestore = FirebaseFirestore.getInstance();
 
         add_portfolio_button.setOnClickListener(v -> {
-           String spinner_data = spinnerserchasset.getText().toString();
-           String add_asset_number_data = add_asset_number.getText().toString();
+            String spinner_data = spinnerserchasset.getText().toString();
+            String add_asset_number_data = add_asset_number.getText().toString();
+
             userID = mAuth.getCurrentUser().getUid();
             DocumentReference documentReference = firestore.collection("users").document(userID).collection("portfolio").document("asset_list");
             Map<String,Object> user = new HashMap<>();
             user.put(spinner_data, add_asset_number_data);
 
-
-           documentReference.update(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+            documentReference.update(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                @Override
                 public void onSuccess(Void unused) {
                     Log.d("", "user is created for"+userID);
                     startActivity(new Intent(AddAssetActivity.this, MainActivity.class));
                 }
-           });
-
-
+            });
            Toast.makeText(AddAssetActivity.this, spinner_data+add_asset_number_data, Toast.LENGTH_SHORT).show();
         });
 

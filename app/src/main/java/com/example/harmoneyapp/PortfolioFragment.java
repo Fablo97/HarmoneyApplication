@@ -6,6 +6,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import static android.content.ContentValues.TAG;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -13,6 +19,8 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import java.util.Map;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,13 +34,15 @@ public class PortfolioFragment extends Fragment {
 
     }
 
+    FirebaseAuth mAuth;
+    FirebaseFirestore db;
     RecyclerView recyclerView2;
+
     List<GetItemPortfolio> portfolioList;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-
         View view = inflater.inflate(R.layout.fragment_portfolio, container, false);
 
         recyclerView2 = view.findViewById(R.id.recyclerView2);
@@ -47,30 +57,43 @@ public class PortfolioFragment extends Fragment {
     private void initData() {
         PriceViewModel viewModel = new ViewModelProvider(this).get(PriceViewModel.class);
 
-        portfolioList = new ArrayList<>();
         viewModel.getCoinMarkets("eur");
 
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = mAuth.getCurrentUser();
+        db = FirebaseFirestore.getInstance();
 
-        viewModel.getMarkets().observe(getViewLifecycleOwner(), markets -> {
-            Log.d("", markets.toString());
+        portfolioList = new ArrayList<>();
 
-            int marketsSize = markets.getMarkets().size();
-            List<CoinMarkets> m = markets.getMarkets();
+        assert user != null;
+        DocumentReference docRef = db.collection("users").document(user.getUid()).collection("portfolio").document("asset_list");
+        docRef.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                DocumentSnapshot document = task.getResult();
+                if (document.exists()) {
+                    Log.d(TAG, "DocumentSnapshot data: " + document.getData());
 
-            for (int i = 0; i < 5; i++) {
-                CoinMarkets market = m.get(i);
-                String name = market.getName();
-                double price = market.getCurrentPrice();
-                String symbol = market.getSymbol();
+                    Map<String, Object> data = document.getData();
 
-                portfolioList.add(new GetItemPortfolio(name, symbol, "price",symbol));
+                    assert data != null;
+                    for (Map.Entry<String, Object> entry : data.entrySet()) {
+                        String key = entry.getKey();
+                        Object value = entry.getValue();
 
-        //        portfolioList.add(new GetItemPortfolio("name",name,"",symbol));
-             //   portfolioList.add(new GetItemPortfolio(market.getImage(), name, price + "€", symbol));
+                        portfolioList.add(new GetItemPortfolio(key, value.toString(), key,"price", key));
+                        //   portfolioList.add(new GetItemPortfolio("name",name,"",symbol));
 
+                    }
+            //   portfolioList.add(new GetItemPortfolio("name",name,"",symbol));
+                    //   portfolioList.add(new GetItemPortfolio(market.getImage(), name, price + "€", symbol));
+
+                    recyclerView2.setAdapter(new AdapterPortfolio(portfolioList));
+                } else {
+                    Log.d(TAG, "No such document");
+                }
+            } else {
+                Log.d(TAG, "get failed with ", task.getException());
             }
-
-            recyclerView2.setAdapter(new AdapterPortfolio(portfolioList));
         });
     }
 
